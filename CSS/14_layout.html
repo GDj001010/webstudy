@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        /* 
+            float 속성
+            1. HTML 요소들의 기본 배치(상 -> 하, 좌 -> 우)를 벗어날 때 사용한다.
+            2. 왼쪽이나 오른쪽 영역에 배치 시킬 수 있다.
+        */
+            .wrap1 > div{
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            .wrap1 > .box1{
+                float: left;
+            }
+            .wrap1 > .box2{
+                float: right;
+            }
+    </style>
+    <div class="wrap1">
+        <div class="box1">BOX1</div>
+        <div class="box2">BOX2</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet ultrices odio quis molestie.
+        Donec dignissim est in justo pharetra sagittis eget non tortor. Nunc et nisl sagittis, sollicitudin 
+        turpis at, consectetur urna. Sed rhoncus diam diam, fermentum interdum ipsum auctor eu. Integer sed enim mollis, 
+        gravida sem non, finibus risus. Donec mattis pharetra mauris, a lobortis sem. Donec pulvinar blandit diam consequat 
+        elementum. Pellentesque quis purus auctor, malesuada sapien ac, commodo quam. Maecenas porttitor eget massa vel condimentum. 
+        Ut nec libero vitae sem pharetra semper ut vel nibh. Nunc suscipit vestibulum justo, ut tempor eros congue a. Orci varius 
+        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc vitae faucibus odio. Aenean eu cursus enim, 
+        a pulvinar mauris.
+    </div>
+
+    <style>
+        /* 
+            overflow 속성
+            1. 영역을 벗어난 컨텐츠에 적용되는 속성이다.
+            2. 영역을 벗어난 컨텐츠를 숨기거나 스크롤 처리한다.
+        */
+        .wrap2 > div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        .wrap2 > .box1 {
+            overflow: hidden;
+        }
+        .wrap2 > .box2 {  
+            overflow-x: scroll; /* 가로 스크롤이 생긴다. */
+            overflow-y: scroll; /* 세로 스크롤이 생긴다. */
+        }
+        .wrap2 > .box3 {
+            overflow: scroll;
+        }
+    </style>
+    <div class="wrap2">
+        <div class="box1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="box2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="box3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    </div>
+
+    <hr>
+
+    <style>
+        /* 
+            블록을 좌우로 배치하는 방법 - 1(one true layout)
+            1. 부모 요소를 overflow: hidden; 처리한다.
+            2. 자식 요소를 float: left; (또는 float: right;) 처리한다.
+        */
+        .wrap3 {
+            overflow: hidden;
+
+        }
+        .wrap3 > div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            float: left;
+        }
+        
+    </style>
+    <div class="wrap3">
+        <div>BOX1</div>
+        <div>BOX2</div>
+    </div>
+    
+    <hr>
+
+    <style>
+         /* 
+            블록을 좌우로 배치하는 방법 - 2
+            1. 부모 요소를 display: flex; 처리한다.
+            2. 그럼 끝.
+        */
+        div {
+            box-sizing: border-box;
+        }
+        .wrap4 {
+            display: flex;
+            flex-wrap: wrap;  /*  1.wrap         : 자식의 크기를 그대로 유지시켜주기 때문에 부모 영역을 벗어날 수 있는 방식  
+                                  nowrap(디폴트) : 부모영역으로 자식들을 모두 모으는 방식*/
+            flex-direction: row;    /*  방향 바꾸기
+                                    row, row-reverse, column, column-reverse */
+            justify-content: space-between;  /* 정렬 
+                                                center, space-around, space-between */
+            width: 600px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .wrap4 > div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <div class="wrap4">
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+        <div>BOX4</div>
+        <div>BOX5</div>
+    </div>
+
+
+</body>
+</html>
