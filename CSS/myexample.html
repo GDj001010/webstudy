@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+        .wrap {
+            width: 450px;
+        }
+        .login_wrap {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left_wrap {
+            width: 350px;
+        }
+        .right_wrap {
+            width: 90px;
+            
+        }
+        .id_wrap, .pw_wrap {
+            display: flex;
+            border: 1px solid gray;
+            border-radius: 5px 0 5px 0;
+            background-color: white;
+        }
+        .icon_wrap {
+            border: 1px solid gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form method="post" action="/">
+            <div class="login_wrap">
+                <div class="left_wrap">
+                    <div class="id_wrap">
+                        <div class="icon_wrap">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="input_wrap">
+                            <input type="text" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="pw_wrap">
+                        <div class="icon_wrap">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <div class="input_wrap">
+                            <input type="password" placeholder="●●●●">
+                        </div>
+                    </div>
+                </div>
+                <div class="right_wrap">
+                    <button>로그인</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            box-sizing: border-box;
+            position: relative;
+        }
+        .doc-title {
+            margin-top: 50px;
+            text-align: center;
+        }
+        form > div  {
+            border-bottom: 3px solid gray;
+            
+            outline: 0;
+        }
+        .login-checkbox {
+            border-bottom: 0;
+        }
+        form > div > 
+        #loginKey--1 {
+            padding: 7px 113px;
+            border: 0;
+        }
+        #password--2 {
+            padding: 7px 113px;
+            border: 0;
+
+        }
+        .login-checkbox > label {
+            padding-left: 20px;
+            background-image: url('../../images/102_63f2bcae6e09d/check1.png');
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            
+        }
+
+        .content-article {
+            width: 600px;
+            height: 500px;
+            border: 1px solid gray;
+            margin-left: 660px;
+            margin-top: 50px;
+            position: relative;
+        }
+        .cont_login {
+            margin-top: 50px;
+            width: 400px;
+            position: absolute;
+            left: 100px;
+        }
+        
+        .doc-footer {
+            text-align: center;
+        }
+        .service_info > a{
+            text-decoration: none;
+            padding-bottom: 50px;
+            color: gray;
+        }
+        .txt_copyright > a {
+            text-decoration: none;
+            color: gray;
+        }
+        strong {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container-doc">    <!-- 전부 다 이 안에 넣는다 -->
+        <div class="inner-container">
+            <main class="doc-main">     <!-- 본문 만들 때 쓴다. -->
+                <div class="doc-title">
+                    <h1>kakao</h1>
+                </div>
+                <article class="content-article">  <!-- 본문에서 사용하는 div -->
+                    <div class="cont_login">
+                        <div class="login_kakaomail">
+                            <form method="post">
+                                <div class="box_tf fst">
+                                    <label class="screen_out" for="loginKey--1"></label>
+                                    <input type="text" id="loginKey--1" name="loginKey" placeholder="카카오메일 아이디, 이메일, 전화번호 " class="tf_g" value>
+                                </div>
+                                <div class="box_tf">
+                                    <label class="screen_out" for="password--2"></label>
+                                    <input type="password" id="password--2" name="password" placeholder="비밀번호" autocomplete="off" class="tf_g" value>
+                                </div>
+                                <div class="login-checkbox">
+                                    <input type="checkbox" id="all">
+                                    <label for="all">로그인 상태 유지</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <footer class="doc-footer">
+                <strong class="screen_out">서비스 이용정보</strong>
+                <div class="service_info">
+                    <a href="javascript:void(0)" class="ling_info">이용약관</a>
+                    <a href="javascript:void(0)" class="ling_info"><strong>개인정보 처리방침</strong></a>
+                    <a href="javascript:void(0)" class="ling_info">운영정책</a>
+                    <a href="javascript:void(0)" class="ling_info">고객센터</a>
+                    <a href="javascript:void(0)" class="ling_info">공지사항</a>
+                </div>
+                <small class="txt_copyright">
+                    Copyright @
+                    <a class="link_kakaocorp" href="http://kakaocorp.com/"><strong>Kakao Corp.</strong> </a>
+                    All rights reserved.
+                </small>
+            </footer>
+        </div>
+    </div>    
+
+</body>
+</html>
