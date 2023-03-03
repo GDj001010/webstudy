@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="box1"></div>
+    <script>
+        // while
+        /*
+        var n = 1;
+        while(n <= 5){
+            document.getElementById('box1').innerHTML += n + '&nbsp;&nbsp;';
+            n++;
+        }
+        */
+       // for
+       for(let a = 1; a <= 5; a++){
+            document.getElementById('box1').innerHTML += a + '&nbsp;&nbsp;';
+       }
+    </script>
+
+    <div id="box2"></div>
+
+    <script>
+        /*
+            <select name="month">
+                <option value="">월</option>
+                <option value="1">1월</option>
+                ...
+                <option value="12">12월</option>
+            </select>
+        */
+       var str = '<select name"month> <option value="">월</option>'
+       for(let a = 1; a <= 12; a++){
+       str += '<option value="' + a + '">' + a + '월</option>';
+       }
+       str += '</select>';
+
+       document.getElementById('box2').innerHTML = str;
+    </script>
+
+    <div id="box3"></div>
+    <script>
+        // 너비가 100px인 animal1.jpg~animal10.jpg 이미지 나열하기
+        var image = '';
+        /*
+        for(let i = 1; i <= 10; i++){
+            image += '<img src="../../images/animal' + i + '.jpg" width="100">';
+        }
+        */
+        for(let i = 1; i <= 10; i++){
+            image += '<img src="../../images/animal' + i + '.jpg" class="animal" width="100">';
+        }
+        document.getElementById('box3').innerHTML = image;
+        
+    </script>
+
+    <div id="box4"></div>
+    <script>
+        /*
+        1  2  3
+        4  5  6
+        7  8  9
+        ---------------------------
+        row-major 방식
+               col=1   col2    col3
+        row=1   1       2       3
+        row=2   4       5       6
+        row=2   7       8       9
+        ---------------------------
+        (1~9) = (row - 1) * 3 + col
+        */
+       /*
+       var a = '<br><br>';
+       var b = '';
+       for(let i = 1; i <= 9; i++){
+        b += i + '&nbsp; &nbsp;';
+           if(i % 3 === 0){
+               b += a;
+           }
+       }
+       document.getElementById('box4').innerHTML = b;
+       */
+    var str = '<table border="1"><tbody>';
+    for(let row = 1; row <= 3; row++){
+        str += '<tr>';
+            for(let col = 1; col <= 3; col++){
+                str += '<td>' + ((row - 1) * 3 + col) + '</td>';
+            }
+        str += '</tr>';
+    }
+    str += '</tbody></table>'
+    document.getElementById('box4').innerHTML = str;
+
+    </script>
+
+</body>
+</html>
