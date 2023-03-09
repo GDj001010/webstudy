@@ -200,6 +200,29 @@
         </table>
     </div>
 
+    <script>
+        document.getElementById('btn_get_weather').addEventListener('click', () => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'sfc_web_map.xml', true);
+            xhr.send();
+            xhr.addEventListener('readystatechange', () => {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var data = xhr.responseXML;
+                    var localList = data.getElementsByTagName('local');
+                    var str = '';
+                    for(let i = 0; i < localList.length; i++){
+                        str += '<tr>';
+                        str += '<td>' + localList[i].textContent + '</td>';
+                        str += '<td>' + localList[i].getAttribute('desc') + '</td>';
+                        str += '<td>' + localList[i].getAttribute('ta') + '</td>';
+                        str += '</tr>';
+                    }
+                    document.getElementById('weather_body').innerHTML = str;
+                }
+            })
+        })
+    </script>
+
     <!-- 연습2. book.json 읽어서 화면에 표시하기 -->
     <div>
         <input type="button" id="btn_get_book" value="책정보가져오기">
@@ -214,6 +237,35 @@
             <tbody id="book_body"></tbody>
         </table>
     </div>
+
+    <script>
+
+        document.getElementById('btn_get_book').addEventListener('click', () => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'book.json', true);
+            xhr.send();
+            xhr.addEventListener('readystatechange', () => {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var data = JSON.parse(xhr.responseText);
+                    var dataList = data.books;
+                    var str = '';
+                    for(let i = 0; i < dataList.length; i++){
+                        str += '<tr>';
+                        // 아래 <td> 태그 만들어주는 코드와 같은 코드
+                        // for(let p in bookList[i]){
+                        //     str += '<td>' + bookList[i][p] + '</td>';
+                        // }
+                        str += '<td>' + dataList[i].title + '</td>';
+                        str += '<td>' + dataList[i].author + '</td>';
+                        str += '<td>' + dataList[i].price + '</td>';
+                        str += '</tr>';
+                        }
+                        document.getElementById('book_body').innerHTML = str;
+                }
+            })
+        })
+
+    </script>
 
 </body>
 </html>
