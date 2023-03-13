@@ -155,5 +155,89 @@
             <li id="alien">에일리언</li>
         </ul>
     </div>
+
+    <div>
+        <form id="frm">
+            <div>
+                <input type="text" placeholder="아이디">
+            </div>
+            <div>
+                <input type="password" placeholder="비밀번호">
+            </div>
+            <div>
+                <!-- input의 입력값은 value 속성(property)에 들어간다 -->
+                <input type="radio" name="gender" value="male" id="male">
+                <label for="male">남자</label>
+                <input type="radio" name="gender" value="female" id="female">
+                <label for="female">여자</label>
+                <input type="radio" name="gender" value="none" id="none" checked>
+                <label for="none">선택안함</label>
+            </div>
+            <div>
+                <select>
+                    <option value="">선택하세요</option>
+                    <option value="서울">서울</option>
+                    <option value="인천" selected>인천</option>
+                    <option value="경기">경기</option>
+                </select>
+            </div>  
+            <div>
+                <textarea>Hello World</textarea>
+            </div>
+        </form>
+    </div>
+    <script>
+        // input type=text
+        $('#frm :text').css('background-color', 'silver');
+        $('#frm :text').prop('value', 'admin');
+        $('#frm :text').val('master');  // 입력 값을 조작하는 val 메소드, 입력된 입력값을 조작할 때 사용
+
+        // input type=password
+        $('#frm :password').val('1234');
+
+        // input type=radio
+        console.log($('#frm :radio').val());            // 첫 번째 radio의 value
+        console.log($('#frm :radio:checked').val());    // 체크 된 radio의 value
+
+        // select
+        console.log($('#frm select').val());            // 선택된(화면에 선택된) option의 value, selected 속성이 없어 선택된 게 없을 땐 빈 문자열이 나온다.
+  
+        // textarea
+        console.log($('#frm textarea').text());         // textarea는 val()를 사용하지 않고, text()를 사용한다.
+        $('#frm textarea').text('Hello jQuery');        // text값 바꿈도 아무의상 없다.
+    </script>
+
+    <style>
+        .big-text {
+            font-size: 2em;     /* em = 기본크기(16px) 2em = 32px */
+        }
+        .red-text {
+            color: red;
+        }
+    </style>
+
+    <div id="box4" class="invisible">
+        Hello World
+    </div>
+    <script>
+    
+        // class 속성 추가
+        $('#box4').addClass('big-text').addClass('red-text');   // 메소드 체이닝 (잘 안 쓰는 방법)
+        $('#box4').addClass('big-text red-text');                // 공백으로 class 구분 (많이 사용 방법)
+    
+        // class 속성 제거
+        $('#box4').removeClass('red-text').removeClass('big-text');     // 메소드 체이닝
+        $('#box4').removeClass('red-text big-text');                    // 공백 구분
+    
+        // class 속성 토글(추가와 제거가 번갈아가면서 적용)
+        $('#box4').toggleClass('big-text').toggleClass('big-text');     // 처음 토글시 텍스트 커진 뒤 다음 토글시 원본으로 돌아온다.
+        $('#box4').toggleClass('red-text').toggleClass('red-text');     // 처음 토글시 텍스트 색이 바뀐 뒤 다음 토글시 원본으로 돌아온다.
+    
+        // class 속성 확인  ( hasClass )
+        if($('#box4').hasClass('invisible')){   // 특정 클래스가 있으면 적용
+            $('#box4').css('opacity', '0');     // 투명도를 0으로 설정하면 안 보인다.
+        }
+    
+    </script>
 </body>
 </html>
