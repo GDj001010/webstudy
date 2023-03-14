@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    
+    <div id="box1">
+
+    </div>
+    <script>
+        // .html    : 기존의 요소 지우고 추가    
+        // .append  : 기존의 요소 유지하고 추가
+        // .prepend : 첫번 째로 추가
+        // 초기 이미지와 버튼
+        $('#box1').html($('<img>').attr('src', '../../images/light1.png').attr('width', '100px').attr('id', 'light'));
+        $('#box1').prepend($('<button>').attr('id', 'btn1').text('OFF').attr('data-state', '0'));
+        
+        // click 이벤트 
+        // jQuery에선 .click() 으로 해도 가능하다
+        $('#btn1').click(function(ev){
+            // 이벤트 대상(target) 대상 호출시 ev객체 매개변수 필수
+            // 1. event.target 
+            // 2. this
+            
+            // btn1의 data-satate = "0"이면 OFF, data-state="1"이면 ON으로 처리한다.
+            if($(this).data('state') == 0){
+                $('#light').attr('src', '../../images/light2.png');
+                $(this).text('ON').data('state', '1');
+            } else {
+                $('#light').attr('src', '../../images/light1.png');
+                $(this).text('OFF').data('state', '0');;
+                
+            }
+        });
+        
+    </script>
+
+    <hr>
+
+    <div id="box2">
+        <div>
+            <button id="btn_prev" class="btn_move" data-value="-1">이전</button>
+            <span id="image_no"></span>
+            <button id="btn_next" class="btn_move" data-value="1">다음</button>
+        </div>
+        <div id="image_box">
+
+        </div>
+    </div>
+    <style>
+        #image_box {
+            width: 480px;
+            height: 320px;
+            background-size: 100% 100%;  /* 박스와 동일한 크기 */
+            background-repeat: no-repeat;
+        }
+        .btn_move:hover {
+            background-color: teal;
+        }
+    </style>
+
+    <script>
+        
+        // 전역 배열 및 인덱스(모든 함수에서 사용할 수 있다.)
+        var imageList = ['animal1.jpg', 'architecture1.jpg', 'flower1.jpg', 'fruit1.jpg', 'nature1.jpg']
+        var i = 0;
+
+        // 이미지와 번호를 표시하는 함수
+        function fnImageDisplay(){
+            $('#image_box').css('background-image', 'url(../../images/' + imageList[i] + ')');
+            $('#image_no').text((i + 1) + '/' + imageList.length);
+        }
+
+        // 이미지 변경 함수
+        function fnImageSlide(n){
+            i += n;
+            // i %= imageList.length;
+            if( i == imageList.length){
+                i = 0;
+            } else if( i == -1){
+                i = imageList.length - 1;
+            }
+            fnImageDisplay();
+        }
+        /*
+        이전 버튼 함수
+        $('#btn_prev').click(function(ev){
+            fnImageSlide(-1);
+        });
+
+        다음 버튼 함수
+        $('#btn_next').click(function(ev){
+            fnImageSlide(1);
+        });
+       */
+
+
+       // 이동 버튼의 click 이벤트 (버튼 텍스트로 이전/다음 구분하기)
+       /*
+       $('.btn_move').click(function(ev){
+        if($(this).text() == '이전'){
+            fnImageSlide(-1);
+        } else {
+            fnImageSlide(1);
+        }
+       })
+        */
+
+        // 이동 버튼의 click 이벤트 (data- 속성을 활용하기)
+        $('.btn_move').click(function(event){
+            fnImageSlide($(this).data('value'));
+        });
+        // 함수 호출
+        fnImageDisplay();
+    </script>
+
+</body>
+</html>
