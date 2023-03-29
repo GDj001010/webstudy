@@ -1,0 +1,83 @@
+.wrap {
+    font-family:'Malgun Gothic', sans-serif;
+    box-sizing: border-box;
+    padding: 0; 
+    margin: 0;   
+}
+.wrap a {
+    color: #000000;
+    text-decoration: none;
+}
+.input {
+    width: 400px;
+    border: 2px solid #007700;
+    height: 40px
+    
+}
+body{
+    background-color: #F5F6F7;
+}
+section div button {
+    background-color: #007700;
+    cursor: pointer;
+    border: 1px solid #007700;
+    color: white;
+    
+}
+.a {
+    background-color: #007777;
+    display: block;
+    width: 160px;
+    text-align: center;
+    height: 30px;
+    padding: 13px;
+    color: white;
+    
+}
+.input:focus {
+    border: 3px solid #FF8800;
+}
+header{
+    display: block;
+    width: 88px;
+    height: 27px;
+    background-size: 100px 80px;    
+    margin: 70px 680px;
+}
+section {
+    text-align: center;
+
+}
+#pw {
+    margin-top: 3px;
+}
+section div > strong, label {
+    font-size: 14px;
+    justify-content: space-between;
+}
+footer {
+    margin: 40px 550px;
+    display: flex;
+    margin-right: 30px;
+    justify-content: space-between;
+    padding-right: 480px;
+    
+}
+button {
+    width: 407px;
+    height: 50px;
+    margin-top: 5px;
+}
+footer p {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    
+}
+.p {
+    font-size: 10px;
+}
+
+.a:link {
+    color: white;
+}   
